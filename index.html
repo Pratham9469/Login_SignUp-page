@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Averia+Gruesa+Libre&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/5bc145c9cb.js" crossorigin="anonymous"></script>
+  <title>Login Page</title>
+</head>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: white;
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  height: 100vh;
+}
+.login_page{
+  position: relative;
+  width: 720px;
+  min-height: 570px;
+  border: 2px solid rgb(92, 138, 254);
+  border-radius: 35px;
+  display: flex;
+}
+
+.first_side{
+  background-color: rgb(92, 138, 254);
+  width: 50%;
+  height: auto;
+  border-radius: 30px;
+  font-family: "Averia Gruesa Libre", system-ui;
+  font-style: normal;
+  text-align: center;
+  position: relative;
+  transform: translate(0);
+  z-index: 99;
+}
+
+  @media screen and (max-width: 700px) {
+  body {
+  height: auto;
+  padding: 20px 0;
+  }
+  .login_page {
+  display: flex;
+  flex-direction: column;
+  width: 95vw;
+  height: auto;
+  flex-direction: column;
+  border-radius: 20px;
+  overflow: hidden;
+  }
+  .first_side {
+  padding-bottom: 30px;
+  width: 100%;
+  height: auto;
+  border-radius: 20px 20px 0 0;
+  }
+  .second_side{
+  width: 100%;
+  padding: 30px 0;
+  border-radius: 0 0 20px 20px;
+  transform: none;
+  animation: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+
+  .first_side h1 {
+  margin-top: 0px;
+  }
+  .user, .pass, .name {
+  width: 95%;
+  }
+  }
+
+@media screen and (min-width: 701px) {
+
+  .animate { animation: animeX 0.5s linear forwards; }
+  .animate2 { animation: animX 0.5s linear forwards; }
+  .animate3 { animation: anim3X 0.5s linear forwards; }
+  .animate4 { animation: anim4X 0.5s linear forwards; }
+
+  @keyframes animeX {
+    100% { transform: translateX(100%); }
+  }
+
+  @keyframes animX {
+    100% { transform: translateX(-100%); }
+  }
+
+  @keyframes anim3X {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(0); }
+  }
+
+  @keyframes anim4X {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
+  }
+}
+
+.first_side h1{
+  font-size: 30px;
+  color: rgba(255, 255, 255, 0.962);
+  margin-top: 100px;
+}
+
+.begin{
+  font-size: 20px;
+  color: rgb(40, 40, 40);
+  line-height: 1.4;
+  margin-top: 20px;
+}
+
+.first_side button{
+  padding: 8px 24px;
+  height: 35px;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 6px;
+  margin-top: 3vw;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  transition: padding-right 0.3s ease;
+}
+.reg{
+  display: flex;
+  justify-content: center;
+}
+
+.second_side{
+  min-width: 50%;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.user,.pass, .name{
+  width: 240px;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(227, 227, 227);
+  color: black;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.icons{
+  display: flex;
+  gap: 18px;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+.icons i{
+  cursor: pointer;
+  color: blue;
+}
+
+.alternate{
+  color: rgb(117, 117, 117);
+  margin-bottom: 15px;
+}
+.forget{
+  color: rgb(0, 55, 255);
+  margin-top: 10px;
+  cursor: pointer;
+}
+.second_side h1{
+  margin-bottom: 15px;
+  font-size: 30px;
+  border-bottom: 3px solid rgb(77, 77, 255);
+}
+.sign{
+  padding: 8px 24px;
+  height: 35px;
+  background-color: rgb(56, 126, 255);
+  border: 2px solid white;
+  border-radius: 6px;
+  margin-top: 15px;
+  cursor: pointer;
+  color: white;
+}
+
+.google-logo {
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+}
+
+.afterSignIn{
+  width: 400px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 2px solid rgb(92, 138, 254);
+  border-radius: 15px;
+}
+.afterSignIn h2 {
+  color: rgb(92, 138, 254);
+}
+.afterSignIn h3 {
+  color: #555;
+  padding-left: 5px;
+}
+
+</style>
+<body>
+<div class="login_page">
+  <div class="first_side">
+    <h1>Hey There!</h1>
+    <p class="begin">
+      Begin your amazing journey by creating<br>an account with us today</span>
+    </p>
+      <div class="reg">
+        <button class="regBtn">Register</button>
+      </div>
+  </div>
+  <div class="second_side">
+    <h1>Sign In</h1>
+    <div class="icons">
+      <i class="fa-brands fa-facebook"></i>
+      <img src="/login_page img/google.svg" class="google-logo" />
+      <i class="fa-brands fa-linkedin"></i>
+    </div>
+    <p class="alternate">or use your account</p>
+    <input placeholder="E-mail" class="user">
+    <input placeholder="password" class="pass">
+    <p class="forget">Forget your password?</p>
+    <button class="sign">Sign in</button>
+  </div>
+</div>
+</body>
+<script>
+let first = document.querySelector(".first_side");
+let second = document.querySelector(".second_side")
+let register = document.querySelector(".regBtn");
+let loginPage = document.querySelector(".login_page");
+
+
+//----------------------------------------------
+let firstSide = document.querySelector(".first_side h1");
+let para = document.querySelector(".begin");
+
+let secondSide = document.querySelector(".second_side h1");
+
+let newInput  = document.createElement("input");
+
+let container = document.querySelector(".second_side");
+let userInput = document.querySelector(".user");
+let passwordInput = document.querySelector(".pass");
+
+let forgetText = document.querySelector(".forget");
+
+let newBtn = document.querySelector(".sign");
+
+let isSignUp = false;
+
+function registerFun(){
+
+  first.classList.remove("animate", "animate3");
+  second.classList.remove("animate2", "animate4");
+
+
+  if(!isSignUp){
+  first.classList.add("animate");
+  second.classList.add("animate2");
+
+  firstSide.innerText = "Welcome Back!";
+  para.innerHTML = "Stay connected by logging in with your<br>credentials and continue your<br>experience";
+  register.textContent = `Sign in`;
+
+  secondSide.textContent = "Sign up";
+  newBtn.textContent = "Sign up";
+
+
+  newInput.placeholder = "Name";
+  newInput.className = "name";
+
+  container.insertBefore(newInput, userInput);
+
+  forgetText.remove();
+
+
+  isSignUp = true;
+  name.value = "";
+  userInput.value = "";
+  passwordInput.value = "";
+  }
+  else{
+    first.classList.add("animate3");
+    second.classList.add("animate4");
+
+    secondSide.textContent = "Sign In";
+    newBtn.textContent = "Sign in"; 
+    if (newInput.parentElement) {
+      newInput.remove();
+    }
+
+    container.insertBefore(forgetText, document.querySelector(".sign"));
+
+    firstSide.innerText = "Hey There!";
+    para.innerHTML = "Begin your amazing journey by creating<br>an account with us today";
+
+    register.textContent = `Register`;
+
+    isSignUp = false;
+
+    userInput.value = "";
+    passwordInput.value = "";
+  }
+}
+
+register.addEventListener("click", registerFun);
+forgetText.addEventListener("click", registerFun);
+
+
+const data = {
+  Email: "test@gmail.com",
+  password: "password",
+};
+
+newBtn.addEventListener("click", () => {
+  if (isSignUp) {
+
+    first.remove();
+    second.remove();
+    loginPage.remove();
+
+    const addingDiv = document.createElement("div");
+    addingDiv.className = "afterSignIn";
+
+    const h2 = document.createElement("h2");
+    h2.textContent = "Account Created Successfully!";
+
+    const h3 = document.createElement("h3");
+    h3.textContent = "Your account has been created. Please sign in to continue.";
+
+    addingDiv.append(h2, h3);
+    document.body.appendChild(addingDiv);
+  }
+
+  else {
+    if (userInput.value === data.Email && passwordInput.value === data.password) {
+
+      first.remove();
+      second.remove();
+      loginPage.remove();
+
+      const addingDiv = document.createElement("div");
+      addingDiv.className = "afterSignIn";
+
+      const h2 = document.createElement("h2");
+      h2.textContent = "Welcome User!";
+
+      const h3 = document.createElement("h3");
+      h3.textContent = "Login successful! Glad to see you again 😊";
+
+      addingDiv.append(h2, h3);
+      document.body.appendChild(addingDiv);
+    } 
+  }
+  });
+
+
+
+</script>
+</html>
